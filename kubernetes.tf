@@ -1,5 +1,5 @@
 provider "google" {
- credentials ="/home/ankitsoni_570_gmail_com/infosys-gcp-demo-project.json"
+ credentials ="/home/ankitsoni_570/secret.json"
  project = "infosys-gcp-demo-project"
  region = "us-central1"
 }
