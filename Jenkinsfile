@@ -42,9 +42,7 @@ pipeline {
       stage('Infra Creation'){
           steps {
             println "=========== Infra Creation ==============="
-            sh '/usr/local/bin/terraform init'
-            sh '/usr/local/bin/terraform plan'
-            sh '/usr/local/bin/terraform apply -input=false'
+            sh("sh terraform.sh")
          }
       }
       stage('Application Deployment'){
@@ -53,7 +51,7 @@ pipeline {
             withCredentials([file(credentialsId: "gcp-key", variable: 'GOOGLE_APPLICATION_CREDENTIALS')])
                 {
                         sh("gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS")
-                        sh("sh deploy.sh")
+                        sh("sh script.sh")
                 }
          }
       }
