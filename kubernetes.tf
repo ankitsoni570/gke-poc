@@ -1,6 +1,6 @@
 provider "google" {
  credentials ="/home/ankitsoni_570/secret.json"
- project = "infosys-gcp-demo-project"
+ project = "concrete-crow-244606"
  region = "us-central1"
 }
 
