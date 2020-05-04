@@ -19,7 +19,7 @@ pipeline {
             println "============== Build, Package & JUnit ================"
             sh "mvn clean install -Dmaven.test.failure.ignore=true"
             sh "docker build --tag sample ."
-            sh "docker tag sample gcr.io/infosys-gcp-demo-project/gke-test-app:latest"
+            sh "docker tag sample gcr.io/concrete-crow-244606/gke-test-app:latest"
          }
          post {
             success {
@@ -34,7 +34,7 @@ pipeline {
             withCredentials([file(credentialsId: "gcp-key", variable: 'GOOGLE_APPLICATION_CREDENTIALS')])
         	{
         		sh("gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS")
-        		sh("gcloud docker -- push gcr.io/infosys-gcp-demo-project/gke-test-app:latest")
+        		sh("gcloud docker -- push gcr.io/concrete-crow-244606/gke-test-app:latest")
         		
         	}
          }
