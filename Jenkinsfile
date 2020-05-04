@@ -30,11 +30,11 @@ pipeline {
           steps {
             println "============== Push Image to GCR =================="
             withCredentials([file(credentialsId: "gcp-key", variable: 'GOOGLE_APPLICATION_CREDENTIALS')])
-        	{
-        		sh("gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS")
-        		sh("gcloud docker -- push gcr.io/concrete-crow-244606/gke-test-app:latest")
+        	   {
+        		   sh("gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS")
+        		   sh("gcloud docker -- push gcr.io/concrete-crow-244606/gke-test-app:latest")
         		
-        	}
+        	   }
          }
       }
       stage('Infra Creation'){
