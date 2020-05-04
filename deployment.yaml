@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: app
-        image: gcr.io/infosys-gcp-demo-project/gke-test-app
+        image: gcr.io/concrete-crow-244606/gke-test-app
         ports:
         - containerPort: 8080
