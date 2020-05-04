@@ -1,5 +1,5 @@
 provider "google" {
- credentials_file ="/home/ankitsoni_570/concrete-crow-244606-2619534a4240.json"
+ credentials ="/home/ankitsoni_570/concrete-crow-244606-2619534a4240.json"
  project = "concrete-crow-244606"
  region = "us-central1"
 }
