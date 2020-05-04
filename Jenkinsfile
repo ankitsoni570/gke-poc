@@ -1,7 +1,5 @@
 pipeline {
-   agent { 
-        label 'slave-gcloud-spin'
-   }
+   agent any
 
    tools {
       maven "mvn"
