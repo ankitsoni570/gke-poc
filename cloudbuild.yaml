@@ -1,0 +1,19 @@
+steps:
+
+- name: 'gcr.io/concrete-crow-244606/sonar-scanner:latest'
+  args:
+    - '-Dsonar.host.url=http://35.208.215.165:9000'
+    - '-Dsonar.login=853eb32d94a99613ba41174803fa057be4dd8420'
+    - '-Dsonar.projectKey=javademoapp'
+    - '-Dsonar.sources=./src/user/'
+  
+- name: 'gcr.io/cloud-builders/mvn'
+  args: ['install', '-Dmaven.test.skip=true']
+  
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/concrete-crow-244606/gke-poc', '.']
+
+#- name: 'gcr.io/cloud-builders/gcloud'
+#  args: ['app', 'deploy', 'app.yaml', '--image-url', 'gcr.io/concrete-crow-244606/gke-poc']
+    
+images: ['gcr.io/concrete-crow-244606/gke-poc']
